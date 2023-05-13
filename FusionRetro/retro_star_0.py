@@ -12,7 +12,6 @@ from modeling import TransformerConfig, Transformer, get_padding_mask, get_mutua
 from rdkit import Chem
 from rdkit.rdBase import DisableLog
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "7"
 DisableLog('rdApp.warning')
 
 
@@ -279,7 +278,6 @@ if __name__ == "__main__":
     parser.add_argument('--hidden_dropout_prob', type=float, default=0.1, help='Dropout rate (1 - keep probability).')
     parser.add_argument('--temperature', type=float, default=1.2, help='Temperature for decoding. Default 1.2')
     parser.add_argument('--beam_size', type=int, default=5, help='Beams size. Default 5. Must be 1 meaning greedy search or greater or equal 5.')
-    parser.add_argument("--batch", help="batch", type=int, default=0)
 
     args = parser.parse_args()
 
@@ -321,18 +319,13 @@ if __name__ == "__main__":
     overall_result = np.zeros((args.beam_size, 2))
     depth_hit = np.zeros((2, 15, args.beam_size))
 
-    #for epoch in trange(0, len(tasks)):
-    for epoch in trange(args.batch*400, min(args.batch*400 + 400, len(tasks))):
+    for epoch in trange(0, len(tasks)):
         max_depth, rank = get_route_result(tasks[epoch])
         overall_result[:, 1] += 1
         depth_hit[1, max_depth, :] += 1
         if rank is not None:
             overall_result[rank:, 0] += 1
             depth_hit[0, max_depth, rank:] += 1
-        if (epoch + 1) % 10 == 0:
-            print("overall_result: ", overall_result, 100 * overall_result[:, 0] / overall_result[:, 1])
-            print("depth_hit: ", depth_hit, 100 * depth_hit[0, :, :] / depth_hit[1, :, :])
-    np.save("result/batch_%s_overall_result.npy"%args.batch, overall_result)
-    np.save("result/batch_%s_depth_hit.npy"%args.batch, depth_hit)
+
     print("overall_result: ", overall_result, 100 * overall_result[:, 0] / overall_result[:, 1])
     print("depth_hit: ", depth_hit, 100 * depth_hit[0, :, :] / depth_hit[1, :, :])

@@ -214,12 +214,11 @@ if __name__ == "__main__":
         tasks.append((product, ground_truth_reactants))
 
     reaction_cost = {}
-    for epoch in trange(args.batch*3000, min(args.batch*3000 + 3000, len(tasks))):
-    #for task in tqdm(tasks):
-        result = get_reaction_cost(tasks[epoch])
+    for task in tqdm(tasks):
+        result = get_reaction_cost(task)
         reaction, cost = result
         if cost != np.inf:
             reaction_cost[reaction] = cost.item()
-    with open('cost/reaction_cost_%s.json'%args.batch, 'w') as f:
+    with open('reaction_cost.json', 'w') as f:
         f.write(json.dumps(reaction_cost, indent=4))
 

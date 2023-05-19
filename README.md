@@ -1,6 +1,6 @@
-# FusionRetro: Molecule Representation Fusion via In-context Reactions for Retrosynthetic Planning  
+# FusionRetro: Molecule Representation Fusion via In-context Learning for Retrosynthetic Planning  
 
-This repository contains an implementation of ["FusionRetro: Molecule Representation Fusion via In-context Reactions for Retrosynthetic Planning"](https://arxiv.org/pdf/2209.15315.pdf).  
+This repository contains an implementation of ["FusionRetro: Molecule Representation Fusion via In-context Learning for Retrosynthetic Planning"](https://arxiv.org/pdf/2209.15315.pdf).  
 
 
 

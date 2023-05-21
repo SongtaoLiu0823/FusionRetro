@@ -273,7 +273,7 @@ Megan: https://github.com/molecule-one/megan
 ## Citation
 ```
 @inproceedings{liu2023fusionretro,
-  title={FusionRetro: Molecule Representation Fusion via In-context Reactions for Retrosynthetic Planning},
+  title={FusionRetro: Molecule Representation Fusion via In-Context Learning for Retrosynthetic Planning},
   author={Liu, Songtao and Tu, Zhengkai and Xu, Minkai and Lin, Lu and Ying, Rex and Tang, Jian and Zhao, Peilin and Wu, Dinghao},
   booktitle={International Conference on Machine Learning},
   year={2023}

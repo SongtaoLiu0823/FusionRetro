@@ -15,8 +15,8 @@ Please move this file into the root folder.
 
 ## FusionRetro 
 ```bash
-cp train_dataset.json valid_dataset.json test_dataset.json zinc_stock_17_04_20.hdf5 Metro/  
-cd Metro  
+cp train_dataset.json valid_dataset.json test_dataset.json zinc_stock_17_04_20.hdf5 FusionRetro/  
+cd FusionRetro  
 
 #Data Process  
 python to_canolize.py  

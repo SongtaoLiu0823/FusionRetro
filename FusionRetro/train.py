@@ -93,7 +93,6 @@ model.to(device)
 
 optimizer = optim.Adam(model.parameters(), lr=0.01)
 
-writer = SummaryWriter(log_dir="loss_pic")
 global_step = 0
 for epoch in trange(1, int(args.epochs)+1, desc="Epoch"):
     total_t = 0
@@ -127,10 +126,9 @@ for epoch in trange(1, int(args.epochs)+1, desc="Epoch"):
             t += current_t
         depth_loss[depth] = sum_loss / t
         depth += 1
-    writer.add_scalar("Loss", total_sum_loss/total_t, epoch)
     f = open('loss.txt', 'a')
     f.write(str(total_sum_loss/total_t)+'\n')
     f.close()
     print(depth_loss, total_sum_loss/total_t)
     if epoch % 100 == 0:
-        torch.save(model, "models/epoch_%s_metro.pkl" %(epoch))
+        torch.save(model, "models/epoch_%s_fusionretro.pkl" %(epoch))

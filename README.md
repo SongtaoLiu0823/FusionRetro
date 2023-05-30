@@ -21,8 +21,11 @@ cd FusionRetro
 #Data Process  
 python to_canolize.py  
 
-#Train 
-python train.py --batch_size 64 --epochs 4000  
+#Train (global_step = 0, trange(1, int(args.epochs)+1, desc="Epoch"))
+python train.py --batch_size 64 --epochs 3000  
+# After 3000 epochs, I set global_step to 1000000 and continue to train the model with 1000 epochs.  
+#(global_step = 1000000, trange(3000+1, 3000+int(args.epochs)+1, desc="Epoch"))
+python train.py --batch_size 64 --epochs 1000
 
 #Retro Star Zero Search
 python retro_star_0.py  --beam_size 5  

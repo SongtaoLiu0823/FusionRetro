@@ -55,6 +55,8 @@ python to_canolize.py
 #Train  
 python train.py --batch_size 32 --epochs 2000  
 
+# We select the model with the performance on the first 100 routes in the validation dataset
+
 #Retrosynthesis Test
 python retrosynthesis_test.py --beam_size 10  
 
@@ -141,6 +143,8 @@ python process_data_stage_2.py -save_dir data -num_cores 12 -num_parts 1 -fp_deg
 #Train
 bash run_mf.sh schneider  
 
+# We select the model with the performance on all routes in the validation dataset
+
 #Retrosynthesis Test
 python retrosynthesis_test.py -save_dir data -f_atoms data/atom_list.txt -gpu 0 -seed 42 -beam_size 10 -epoch_for_test 100  
 
@@ -174,6 +178,8 @@ python featurize.py uspto_50k megan_16_bfs_randat
 
 #Train
 python bin/train.py uspto_50k models/uspto_50k  
+
+# We select the model by the original' code's setting  
 
 #Retrosynthesis Test
 python bin/retrosynthesis_test.py models/uspto_50k --beam-size 10  
@@ -217,6 +223,8 @@ python data_process/lg_edits/lg_tensors.py
 python scripts/benchmarks/run_model.py --config_file configs/single_edit/defaults.yaml  
 python scripts/benchmarks/run_model.py --config_file configs/lg_ind/defaults.yaml  
 
+# We select the model by the original' code's setting  
+
 #Retrosynthesis Test
 python scripts/eval/retrosynthesis_test.py --beam_size 10 --edits_exp SingleEdit_20220823_044246 --lg_exp LGIndEmbed_20220823_04432 --edits_step best_model --lg_step best_model --exp_dir models  
 
@@ -242,6 +250,8 @@ cd G2Gs
 
 #Train
 python script/train.py -g [0]  
+
+# We select the model by the original' code's setting  
 
 #Retrosynthesis Test
 python script/retrosynthesis_test.py -g [0] -k 10 -b 1  

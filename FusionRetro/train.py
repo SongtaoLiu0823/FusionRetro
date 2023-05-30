@@ -28,6 +28,7 @@ parser.add_argument('--epochs', type=int, default=1000, help='Number of epochs t
 parser.add_argument("--batch_size", default=32, type=int, help="Total batch size for training.")
 parser.add_argument("--warmup", default=16000.0, type=float)
 parser.add_argument("--l_factor", default=20.0, type=float)
+parser.add_argument('--continue_train', action='store_true', default=False)
 
 
 args = parser.parse_args()
@@ -87,14 +88,25 @@ for depth in list(depth_products_list.keys()):
     train_dataloader_list.append(get_depth_dataloader(depth))
 
 model = Transformer(config)
+if continue_train:
+    checkpoint = torch.load("models/epoch_3000_fusionretro.pkl")
+    if isinstance(checkpoint, torch.nn.DataParallel):
+        checkpoint = checkpoint.module
+model.load_state_dict(checkpoint.state_dict())
+
 if num_gpu > 1:
     model = torch.nn.DataParallel(model)
 model.to(device)
 
 optimizer = optim.Adam(model.parameters(), lr=0.01)
 
+continue_epoch = 0
 global_step = 0
-for epoch in trange(1, int(args.epochs)+1, desc="Epoch"):
+if continue_train:
+    global_step = 1000000
+    continue_epoch = 3000
+    
+for epoch in trange(continue_epoch+1, continue_epoch+int(args.epochs)+1, desc="Epoch"):
     total_t = 0
     total_sum_loss = 0
     depth_loss = {}

@@ -108,6 +108,8 @@ python prepare_data.py
 #Train
 bash train.sh  
 
+# We select the model by the original' code's setting 
+
 #Retrosynthesis Test
 python retrosynthesis_test.py --beam_size 10 --num_cores 64  
 

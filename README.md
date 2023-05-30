@@ -27,6 +27,8 @@ python train.py --batch_size 64 --epochs 3000
 #(global_step = 1000000, trange(3000+1, 3000+int(args.epochs)+1, desc="Epoch"))
 python train.py --batch_size 64 --epochs 1000
 
+# We select the model with the performance on the first 100 routes in the validation dataset
+
 #Retro Star Zero Search
 python retro_star_0.py  --beam_size 5  
 
@@ -68,7 +70,6 @@ python retro_star.py --beam_size 5
 #Greedy DFS Search
 python greedy_dfs.py --beam_size 5  
 ```
-
 
 
 ## Retrosim  

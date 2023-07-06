@@ -271,8 +271,8 @@ python script/retro_star_0.py -g [0] -k 5 -b 1
 python script/greedy_dfs.py -g [0] -k 5 -b 1  
 ```
 
-## My deepest thanks to Binghong Chen and Samuel Genheden for very helpful discussions on their benchmarks (Retro* and PaRoutes)!
-
+## Acknowledgement  
+My deepest thanks to Binghong Chen and Samuel Genheden for very helpful discussions on their benchmarks (Retro* and PaRoutes)!  
 
 ## Reference  
 

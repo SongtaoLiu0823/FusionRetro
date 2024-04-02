@@ -54,6 +54,7 @@ args = parser.parse_args()
 DATA_FOLDER = Path(__file__).resolve().parent / 'data'
 CHECKPOINT_FOLDER = Path(__file__).resolve().parent / 'checkpoint'
 
+device = torch.device(f"cuda:{args.device}" if torch.cuda.is_available() else "cpu")
 torch.manual_seed(args.random_seed)
 random.seed(args.random_seed)
 os.environ["PYTHONHASHSEED"] = str(args.random_seed)

@@ -1,9 +1,15 @@
 import json
+import argparse
 from tqdm import tqdm
 from rdkit import Chem
 from rdkit.rdBase import DisableLog
 
 DisableLog('rdApp.warning')
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--dataset", default="train", type=str, help="which dataset for canolize.")
+
+args = parser.parse_args()
 
 def cano_smiles(smiles):
     try:
@@ -20,7 +26,7 @@ def cano_smiles(smiles):
 
 
 canolize_dataset = {}
-file_name = "train_dataset.json"
+file_name = "data/%s_dataset.json"%args.dataset
 with open(file_name, 'r') as f:
     dataset = json.load(f)
     for final_product_smiles, reaction_trees in tqdm(dataset.items()):
@@ -54,5 +60,5 @@ with open(file_name, 'r') as f:
         canolize_dataset[final_product_smiles]['retro_routes'] = retro_routes
         canolize_dataset[final_product_smiles]['materials'] = final_retro_tree['materials']
 
-with open('train_canolize_dataset.json', 'w') as f:
+with open('%s_canolize_dataset.json'%args.dataset, 'w') as f:
     f.write(json.dumps(canolize_dataset, indent=4))

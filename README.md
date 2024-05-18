@@ -37,7 +37,8 @@ python retro_star_0.py  --beam_size 5
 #Retro Star Search
 python get_reaction_cost.py  
 python get_molecule_cost.py  
-python value_mlp.py  
+python value_mlp.py
+#We also provide value_mlp.pkl, you can skip the above commands
 python retro_star.py --beam_size 5  
 
 #Greedy DFS Search
@@ -70,7 +71,8 @@ python retro_star_0.py  --beam_size 5
 #Retro Star Search
 python get_reaction_cost.py  
 python get_molecule_cost.py  
-python value_mlp.py  
+python value_mlp.py
+#We also provide value_mlp.pkl, you can skip the above commands
 python retro_star.py --beam_size 5  
 
 #Greedy DFS Search
@@ -92,7 +94,8 @@ python retro_star_0.py  --beam_size 5 --num_cores 64
 #Retro Star Search
 python get_reaction_cost.py  
 python get_molecule_cost.py  
-python value_mlp.py  
+python value_mlp.py
+#We also provide value_mlp.pkl, you can skip the above commands
 python retro_star.py --beam_size 5 --num_cores 64  
 
 #Greedy DFS Search
@@ -123,7 +126,8 @@ python retro_star_0.py  --beam_size 5 --num_cores 64
 #Retro Star Search
 python get_reaction_cost.py  
 python get_molecule_cost.py  
-python value_mlp.py  
+python value_mlp.py
+#We also provide value_mlp.pkl, you can skip the above commands
 python retro_star.py --beam_size 5 --num_cores 64  
 
 #Greedy DFS Search
@@ -160,7 +164,8 @@ python retro_star_0.py -save_dir data -f_atoms data/atom_list.txt -gpu 0 -seed 4
 #Retro Star Search
 python get_reaction_cost.py -save_dir data -f_atoms data/atom_list.txt -gpu 0 -seed 42 -beam_size 10 -epoch_for_search 100  
 python get_molecule_cost.py  
-python value_mlp.py  
+python value_mlp.py
+#We also provide value_mlp.pkl, you can skip the above commands
 python retro_star.py -save_dir data -f_atoms data/atom_list.txt -gpu 0 -seed 42 -beam_size 5 -epoch_for_search 100  
 
 #Greedy DFS Search
@@ -193,7 +198,8 @@ python bin/retrosynthesis_test.py models/uspto_50k --beam-size 10
 #Retro Star Search
 python bin/get_reaction_cost.py models/uspto_50k --beam-size 10  
 python bin/get_molecule_cost.py  
-python bin/value_mlp.py  
+python bin/value_mlp.py
+#We also provide value_mlp.pkl, you can skip the above commands
 python bin/retro_star.py models/uspto_50k --beam-size 5  
 
 #Retro Star Zero Search
@@ -237,7 +243,8 @@ python scripts/eval/retrosynthesis_test.py --beam_size 10 --edits_exp SingleEdit
 #Retro Star Search
 python scripts/eval/get_reaction_cost.py --beam_size 10 --edits_exp SingleEdit_20220823_044246 --lg_exp LGIndEmbed_20220823_04432 --edits_step best_model --lg_step best_model --exp_dir models  
 python scripts/eval/get_molecule_cost.py  
-python scripts/eval/value_mlp.py  
+python scripts/eval/value_mlp.py
+#We also provide value_mlp.pkl, you can skip the above commands
 python scripts/eval/retro_star.py --beam_size 5 --edits_exp SingleEdit_20220823_044246 --lg_exp LGIndEmbed_20220823_04432 --edits_step best_model --lg_step best_model --exp_dir models  
 
 #Retro Star Zero Search
@@ -265,7 +272,8 @@ python script/retrosynthesis_test.py -g [0] -k 10 -b 1
 #Retro Star Search
 python script/get_reaction_cost.py -g [0] -k 10 -b 1  
 python get_molecule_cost.py  
-python value_mlp.py  
+python value_mlp.py
+#We also provide value_mlp.pkl, you can skip the above commands
 python script/retro_star.py -g [0] -k 5 -b 1  
 
 #Retro Star Zero Search

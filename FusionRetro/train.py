@@ -8,7 +8,6 @@ from modeling import TransformerConfig, Transformer, get_padding_mask, get_mutua
 import torch
 import torch.nn.functional as F
 import torch.optim as optim
-from torch.utils.tensorboard import SummaryWriter
 from torch.utils.data import TensorDataset, DataLoader, RandomSampler
 from rdkit.rdBase import DisableLog
 

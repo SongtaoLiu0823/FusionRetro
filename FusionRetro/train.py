@@ -88,7 +88,7 @@ for depth in list(depth_products_list.keys()):
     train_dataloader_list.append(get_depth_dataloader(depth))
 
 model = Transformer(config)
-if continue_train:
+if args.continue_train:
     checkpoint = torch.load("models/epoch_3000_fusionretro.pkl")
     if isinstance(checkpoint, torch.nn.DataParallel):
         checkpoint = checkpoint.module
@@ -102,7 +102,7 @@ optimizer = optim.Adam(model.parameters(), lr=0.01)
 
 continue_epoch = 0
 global_step = 0
-if continue_train:
+if args.continue_train:
     global_step = 1000000
     continue_epoch = 3000
     

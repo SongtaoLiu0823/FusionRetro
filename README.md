@@ -19,7 +19,9 @@ cp train_dataset.json valid_dataset.json test_dataset.json zinc_stock_17_04_20.h
 cd FusionRetro  
 
 #Data Process  
-python to_canolize.py  
+python to_canolize.py --dataset train  
+python to_canolize.py --dataset valid  
+python to_canolize.py --dataset test  
 
 #Initial Train
 python train.py --batch_size 64 --epochs 3000  

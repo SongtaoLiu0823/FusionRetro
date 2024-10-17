@@ -3,7 +3,7 @@
 This repository contains an implementation of ["FusionRetro: Molecule Representation Fusion via In-Context Learning for Retrosynthetic Planning"](https://openreview.net/pdf?id=cnILy0dQUr), which is an autoregressive framework for molecule synthetic route generation.  
 
 ## Warning 
-**We only use on route for each molecule in the training dataset for model training!!!**
+***We only use on route for each molecule in the training dataset for model training!!!***
 
 ## Contribution
 
